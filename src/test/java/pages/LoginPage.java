@@ -47,15 +47,14 @@ public class LoginPage extends BasePage {
         return context.wait.until(ExpectedConditions.visibilityOf(alertMessageWarning)).getText();
     }
 
-    public String loginWithValidParameters(String login, String password) {
+    public void loginWithValidParameters(String login, String password) {
 
         context.wait.until(ExpectedConditions.visibilityOf(inputLogin)).sendKeys(login);
         inputPassword.sendKeys(password);
         clickLogInButton();
         context.wait.until(ExpectedConditions.visibilityOf(alertSuccess));
-        return alertSuccess.getText();
-
     }
+
     public void loginWithInvalidParameters(String login, String password) {
 
         context.wait.until(ExpectedConditions.visibilityOf(inputLogin)).sendKeys(login);
