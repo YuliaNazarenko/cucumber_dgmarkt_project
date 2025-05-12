@@ -9,19 +9,15 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import pages.StartPage;
 import utils.ConfigurationReader;
 import utils.DriverFactory;
 
 import java.time.Duration;
 
-public class BaseStep {
-    private static final Logger log = LoggerFactory.getLogger(LoginSteps.class);
+public class Hooks {
     TestContext context;
     Scenario scenario;
-
     @Before
     public void beforeEach(Scenario scenario) {
         context = new TestContext();

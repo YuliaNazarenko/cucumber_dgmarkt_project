@@ -1,15 +1,31 @@
 package steps;
 
+import context.TestContext;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 import pages.ItemPage;
+import pages.StartPage;
 import utils.ConfigurationReader;
+import utils.DriverFactory;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SearchSteps extends BaseStep {
+public class SearchSteps {
+    TestContext context;
+    Scenario scenario;
+
 
     @Given("user clicks on Search field")
     public void userClicksOnSearchField () {
