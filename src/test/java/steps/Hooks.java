@@ -16,16 +16,20 @@ import utils.DriverFactory;
 import java.time.Duration;
 
 public class Hooks {
-    TestContext context;
+    public Hooks(TestContext context) {
+        this.context = context;
+    }
+
+    private final TestContext context;
     Scenario scenario;
     @Before
     public void beforeEach(Scenario scenario) {
-        context = new TestContext();
+        //context = new TestContext();
         context.driver = DriverFactory.get();
         context.wait = new WebDriverWait(context.driver,
                 Duration.ofSeconds(Long.parseLong(ConfigurationReader.get("timeout"))));
         context.actions = new Actions(context.driver);
-        context.driver.get(ConfigurationReader.get("url") + "startPageLogin");
+        context.driver.get(ConfigurationReader.get("url"));
         StartPage startPage = new StartPage(context);
         startPage.startPageLogin();
         context.js = (JavascriptExecutor) context.driver;
