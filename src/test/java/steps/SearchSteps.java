@@ -48,4 +48,17 @@ public class SearchSteps {
         assertEquals("Success: You have added " +
                 (ConfigurationReader.get("searching_item")) + " to your shopping cart!\n×", messageText);
     }
+
+    @Given("user goes to Health and Beauty category and chooses it")
+    public void userGoesToHealthAndBeautyCategoryAndChoosesIt() {
+        HomePage homePage = new HomePage(context);
+        homePage.chooseByCategory();
+    }
+
+    @When("user found the searching item on the page and click the Add to Cart button")
+    public void userFoundTheSearchingItemOnThePageAndAdd() {
+        HomePage homePage = new HomePage(context);
+        homePage.addToCartFromCategory();
+    }
+
 }

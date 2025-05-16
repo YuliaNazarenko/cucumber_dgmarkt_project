@@ -24,19 +24,6 @@ public class ItemPage extends BasePage{
     public WebElement alertMessage;
 
 
-
-    public String addToCart() {
-        context.wait.until(ExpectedConditions.visibilityOf(addToCartButton)).click();
-        return context.wait.until(ExpectedConditions.visibilityOf(alertMessage)).getText();
-    }
-
-    public String addToWishList() {
-
-        context.driver.get(ConfigurationReader.get("item_url"));
-        context.wait.until(ExpectedConditions.visibilityOf(addToWishListButton)).click();
-        return context.wait.until(ExpectedConditions.visibilityOf(alertMessage)).getText();
-    }
-
     public String messageContainsTextMessage () {
         return context.wait.until(ExpectedConditions.visibilityOf
                 (new ItemPage(context).alertMessage)).getText();

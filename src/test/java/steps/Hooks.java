@@ -22,6 +22,7 @@ public class Hooks {
 
     private final TestContext context;
     Scenario scenario;
+
     @Before
     public void beforeEach(Scenario scenario) {
         //context = new TestContext();

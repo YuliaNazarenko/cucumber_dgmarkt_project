@@ -16,7 +16,6 @@ public class LoginSteps {
     }
 
     public final TestContext context;
-    //Scenario scenario;
 
 
     @Given("user opens login page")
@@ -103,5 +102,6 @@ public class LoginSteps {
 
         assertTrue(alertText.equals(warningMessage) || alertText.equals(alternativeMessage));
     }
+
 }
 
