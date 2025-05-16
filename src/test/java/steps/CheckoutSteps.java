@@ -11,24 +11,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CheckoutSteps {
     public CheckoutSteps(TestContext context) {
         this.context = context;
+        this.checkoutPage = new CheckoutPage(context);
     }
     public final TestContext context;
+    private final CheckoutPage checkoutPage;
 
     @Given("user has the added item in the shopping bag")
     public void userHasTheAddedItemInTheShoppingBag() {
-        CheckoutPage checkoutPage = new CheckoutPage(context);
         checkoutPage.addToCardByLink();
     }
 
     @When("user clicks on shopping bag item the checkout form opens")
     public void userClicksOnShoppingBagItemTheCheckoutFormOpens() {
-        CheckoutPage checkoutPage = new CheckoutPage(context);
         checkoutPage.goToCheckout();
     }
 
     @Then("user fills up the guest checkout form")
     public void userFillsUpTheGuestCheckoutForm() {
-        CheckoutPage checkoutPage = new CheckoutPage(context);
         checkoutPage.fillGuestCheckoutForm();
     }
 

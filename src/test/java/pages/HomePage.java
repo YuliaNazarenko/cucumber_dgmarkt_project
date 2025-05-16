@@ -102,7 +102,7 @@ public class HomePage extends BasePage {
         Actions actions = new Actions(context.driver);
         WebElement addToCartButton = findAddToCartButtonByItem(ConfigurationReader.get("searching_item"));
         actions.moveToElement(addToCartButton).perform();
-        context.wait.until(ExpectedConditions.visibilityOf(addToCartButton)).click();
+        addToCartButton.click();
 
         context.wait.until(ExpectedConditions.visibilityOf(new ItemPage(context).alertMessage));
     }

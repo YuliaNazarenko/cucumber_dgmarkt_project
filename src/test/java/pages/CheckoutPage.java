@@ -83,7 +83,6 @@ public class CheckoutPage extends BasePage {
     public WebElement deliveryMassage;
 
 
-
     public void addToCardByLink() {
         context.driver.get(ConfigurationReader.get("item_url"));
         context.wait.until(ExpectedConditions.visibilityOf(new ItemPage(context).addToCartButton)).click();

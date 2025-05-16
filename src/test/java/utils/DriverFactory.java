@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.time.Duration;
+
 public class DriverFactory {
     public static WebDriver get() {
         String browser = ConfigurationReader.get("browser");
@@ -28,6 +30,11 @@ public class DriverFactory {
                 if (ConfigurationReader.get("maximize").toLowerCase().contains("true")) {
                     driver.manage().window().maximize();
                 }
+
+                // Передаем таймаут из конфигурации в ImplicitWait внутри DriverFactory.
+                String timeoutString = ConfigurationReader.get("timeout");
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(timeoutString)));
+
                 return driver;
             }
             case "firefox" -> {

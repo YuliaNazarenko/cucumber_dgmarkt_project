@@ -4,6 +4,7 @@ import context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -24,6 +25,7 @@ public class Hooks {
     Scenario scenario;
 
     @Before
+    @DisplayName("Opens home page")
     public void beforeEach(Scenario scenario) {
         //context = new TestContext();
         context.driver = DriverFactory.get();
